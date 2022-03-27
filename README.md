@@ -8,7 +8,7 @@ git clone the source code:
 git clone https://github.com/zhmichael007/gke-spot-node-pool
 ```
 
-Set the cluster name in the 
+Set the cluster name and service account in the script:
 ```bash
 CLUSTER_NAME=<Your Cluster Name>
 SA_NAME="<Your service-account name>"
