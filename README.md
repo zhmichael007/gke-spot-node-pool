@@ -5,7 +5,7 @@ open cloud shell.
 
 git clone the source code:
 ```bash
-https://github.com/zhmichael007/gke-spot-node-pool
+git clone https://github.com/zhmichael007/gke-spot-node-pool
 ```
 
 Set the cluster name in the 
