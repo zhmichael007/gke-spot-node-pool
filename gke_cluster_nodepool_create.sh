@@ -1,20 +1,21 @@
 CLUSTER_NAME=<Your Cluster Name>
+SA_NAME="<Your service-account name>"
+
 HIGH_MEM_SPOT=("n2d-highmem-16" "c2d-highmem-16" "n2-highmem-16")
 HIGH_MEM_ONDEMAND=("n2d-highmem-16" "c2d-highmem-16" "n2-custom-20-131072")
 HIGH_CPU_SPOT=("n2d-custom-16-32768" "t2d-standard-16" "c2d-standard-16" "n2-standard-16")
 HIGH_CPU_ONDEMAND=("n2d-custom-16-32768" "t2d-standard-16" "c2d-standard-16" "n2-custom-16-81920")
 INTEL_SPOT=("n2-custom-16-32768" "c2-standard-16")
 INTEL_ONDEMAND=("n2-custom-16-32768" "c2-standard-16")
-SA_NAME="<Your service-account name>"
 
 echo "start GKE node pool provisioning, cluster name: "$CLUSTER_NAME
-##default node pool
-# gcloud beta container clusters create $CLUSTER_NAME \
-# --region us-central1 \
-# --node-locations us-central1-a \
-# --machine-type=e2-standard-4 \
-# --service-account=$SA_NAME \
-# --num-nodes 1
+#default node pool
+gcloud beta container clusters create $CLUSTER_NAME \
+--region us-central1 \
+--node-locations us-central1-a \
+--machine-type=e2-standard-4 \
+--service-account=$SA_NAME \
+--num-nodes 1
 
 
 gcloud container clusters get-credentials $CLUSTER_NAME --region us-central1
